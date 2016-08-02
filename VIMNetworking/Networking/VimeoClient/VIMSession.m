@@ -236,7 +236,9 @@ static VIMSession *_sharedSession;
     
     BOOL success = [VIMAccountStore saveAccount:account forKey:key];
     
+#if !TARGET_IPHONE_SIMULATOR
     NSAssert(success, @"Unable to save account for key: %@", key);
+#endif
     
     if (!success)
     {
